@@ -1,0 +1,103 @@
+
+@media (max-width: 1035px){
+
+  .main {
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .navigation {
+    padding: 1rem;
+  }
+
+  .post,
+  .profile,
+  .recent-pages, 
+  .dated-pages,
+  .tagged-pages {
+    padding: 2rem;
+  }
+
+  .profile-image {
+    width: 75%;
+    border-radius: 4096px;
+  }
+
+  .page-navigation {
+    overflow: hidden;
+  }
+
+  .page-navigation a {
+    display: block;
+    padding: 1rem 4rem;
+    padding: 2rem;
+  }
+
+  .previous-page-link {
+    float: left;
+  }
+
+  .next-page-link {
+    float: right;
+  }
+
+  .content > *,
+  .navigation > * {
+    margin-bottom: 1rem;
+  }
+
+  .content > *:last-child,
+  .navigation > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .header {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 4rem;
+  }
+
+  .content img {
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, p {
+    margin: 0;
+  }
+
+  .indent {
+    margin-top: calc(15px * 1.6);
+  }
+
+  .indent-little {
+    margin-top: calc(15px * 0.6);
+  }
+
+  nav > h1 + *,
+  aside > h1 + *,
+  article > h1 + *,
+  section > h1 + *,
+  nav > a + a,
+  aside > a + a,
+  article > a + a,
+  section > a + a {
+    margin-top: calc(15px * 0.6);
+  }
+
+  nav > * + *,
+  aside > * + *,
+  article > * + *,
+  section > * + * {
+    margin-top: calc(15px * 1.6);
+  }
+
+}

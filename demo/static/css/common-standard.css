@@ -1,0 +1,110 @@
+
+@media (min-width: 1036px){
+
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: flex-start;
+    width: 1036px;
+    margin: auto;
+    margin-bottom: 3rem;
+    overflow: hidden;
+  }
+
+  .content {
+    width: 640px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .navigation {
+    width: 320px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .post,
+  .profile,
+  .recent-pages, 
+  .dated-pages,
+  .tagged-pages {
+    padding: 3rem 4rem;
+  }
+
+  .page-navigation {
+    overflow: hidden;
+  }
+
+  .page-navigation a {
+    display: block;
+    padding: 1rem 4rem;
+  }
+
+  .previous-page-link {
+    float: left;
+  }
+
+  .next-page-link {
+    float: right;
+  }
+
+  .content > *,
+  .navigation > * {
+    margin-bottom: 1rem;
+  }
+
+  .content > *:last-child,
+  .navigation > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .header {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 4rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer {
+    width: 100%;
+    margin: 0;
+    padding: 3rem 4rem;
+  }
+
+  .content img {
+    width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, p {
+    margin: 0;
+  }
+
+  .indent {
+    margin-top: calc(15px * 1.6);
+  }
+
+  .indent-little {
+    margin-top: calc(15px * 0.6);
+  }
+
+  nav > h1 + *,
+  aside > h1 + *,
+  article > h1 + *,
+  section > h1 + *,
+  nav > a + a,
+  aside > a + a,
+  article > a + a,
+  section > a + a {
+    margin-top: calc(15px * 0.6);
+  }
+
+  nav > * + *,
+  aside > * + *,
+  article > * + *,
+  section > * + * {
+    margin-top: calc(15px * 1.6);
+  }
+
+}

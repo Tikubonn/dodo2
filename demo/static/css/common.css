@@ -1,0 +1,170 @@
+
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.right-text {
+  text-align: right;
+}
+
+.gray-text {
+  color: #aaa;
+}
+
+.kern {
+  font-family: "BIZ UDPGothic", "Yu Gothic", "Meiryo", sans-serif;
+  font-feature-settings: "palt";
+}
+
+.small {
+  font-size: 10.5px;
+}
+
+.one-line {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.no-indent {
+  text-indent: 0;
+}
+
+.boxed {
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+hr {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-bottom: 3px dotted #222;
+}
+
+a {
+  color: #094067;
+  text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:visited {
+  color: #ef4565;
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Verdana", "BIZ UDGothic", "Yu Gothic", "Meiryo", sans-serif;
+  font-weight: normal;
+  font-size: 14px;
+  font-feature-settings: normal;
+  line-height: 1.8;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "BIZ UDPGothic", "Yu Gothic", "Meiryo", sans-serif;
+  font-weight: bold;
+  font-size: 21px;
+  font-feature-settings: "palt";
+}
+
+body {
+  background: #eee;
+}
+
+nav h1,
+nav h2,
+nav h3,
+nav h4,
+aside h1,
+aside h2,
+aside h3,
+aside h4,
+article h1,
+article h2,
+article h3,
+article h4,
+section h1,
+section h2,
+section h3,
+section h4 {
+  text-align: center;
+}
+
+.content {
+}
+
+.post {
+}
+
+.navigation {
+}
+
+.header,
+.footer {
+  background: #0f0e17;
+  border-bottom: 1px solid #000;
+  color: #fff;
+}
+
+.header h1 {
+  font-size: 28px;
+}
+
+.header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header p {
+  color: #ccc;
+}
+
+p {
+  text-indent: 1rem;
+}
+
+article > a,
+section > a {
+  display: block;
+}
+
+article > a img,
+section > a img {
+  display: block;
+}
+
+img {
+  border-radius: 2px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content ul {
+  padding-left: 1rem;
+  list-style: disc;
+  list-style-position: inside;
+}
+
+.content ol {
+  padding-left: 1rem;
+  list-style: decimal;
+  list-style-position: inside;
+}

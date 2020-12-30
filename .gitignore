@@ -1,0 +1,8 @@
+build
+dist
+dodo2.egg-info
+demo/cache/*
+!demo/cache 
+demo/dist/*
+!demo/dist
+!.gitkeep

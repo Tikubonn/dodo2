@@ -1,0 +1,47 @@
+{
+  "cache_dir": "cache",
+  "dist_dir": "dist",
+  "host": "example.com",
+  "src_dir": "src",
+  "static_dir": "static",
+  "use_ssl": false,
+  "template": {
+    "src": "static/template.html"
+  },
+  "static": {
+    "exclusives": [
+      "static/template.html"
+    ]
+  },
+  "ftp": {
+    "servers": [
+    ]
+  },
+  "sitemap": {
+    "enable": true
+  },
+  "sitemap_image": {
+    "enable": true
+  },
+  "sitemap_index": {
+    "enable": true
+  },
+  "search": {
+    "enable": true
+  },
+  "page": {
+    "use_dated_page_parameter": true,
+    "use_recent_page_parameter": true,
+    "use_tagged_page_parameter": true
+  },
+  "gzip": {
+    "enable": true
+  },
+  "minify_html": {
+    "enable": true
+  },
+  "plugin_order": [
+    "dodo_minify_html",
+    "dodo_gzip"
+  ]
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta lang="ja">
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    {% if page_type == "single" %}
+      <meta property="og:url" content="{{ full_url }}">
+      <meta property="og:type" content="article">
+      <meta property="og:title" content="{{ title }}" />
+      <meta property="og:description" content="{{ description }}" />
+      <meta property="og:site_name" content="Demo for DoDo" />
+      <!-- <meta property="og:image" content="{{ thumbnail }}" /> -->
+    {% elif page_type == "recent" and page_number == 1 %}
+      <meta property="og:url" content="{{ full_url }}">
+      <meta property="og:type" content="website">
+      <meta property="og:title" content="Demo for DoDo" />
+      <meta property="og:description" content="このブログは、自家製のブログ生成ソフト「DoDo」を使用して作成・公開されています。 " />
+      <meta property="og:site_name" content="Demo for DoDo" />
+      <!-- <meta property="og:image" content="{{ thumbnail }}" /> -->
+    {% endif %}
+    {% if page_type == "single" %}
+      <meta name="keywords" content="{{ ','.join(post.keywords) }}">
+      <meta name="description" content="{{ post.description }}">
+    {% endif %}
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/common-standard.css" rel="stylesheet">
+    <link href="/css/common-mobile.css" rel="stylesheet">
+    {% if page_type == "single" %}
+      <title>{{ post.title }} - Demo for DoDo</title>
+    {% elif page_type == "recent" %}
+      {% if 1 < page_number %}
+        <title>最新の記事 - {{ page_number }}ページ目  - Demo for DoDo</title>
+      {% else %}
+        <title>最新の記事</title>
+      {% endif %}
+    {% elif page_type == "tag" %}
+      {% if 1 < page_number %}
+        <title>{{ tag_group }} に関連する記事 - {{ page_number }}ページ目  - Demo for DoDo</title>
+      {% else %}
+        <title>{{ tag_group }} に関連する記事  - Demo for DoDo</title>
+      {% endif %}
+    {% elif page_type == "date" %}
+      {% if date_group.month %}
+        {% if 1 < page_number %}
+          <title>{{ date_group.year }}年{{ date_group.month }}月に投稿された記事 - {{ page_number }}ページ目  - Demo for DoDo</title>
+        {% else %}
+          <title>{{ date_group.year }}年{{ date_group.month }}月に投稿された記事  - Demo for DoDo</title>
+        {% endif %}
+      {% else %}
+        {% if 1 < page_number %}
+          <title>{{ date_group.year }}年に投稿された記事 - {{ page_number }}ページ目  - Demo for DoDo</title>
+        {% else %}
+          <title>{{ date_group.year }}年に投稿された記事  - Demo for DoDo</title>
+        {% endif %}
+      {% endif %}
+    {% endif %}
+  </head>
+  <body>
+    <div class="header">
+      <aside>
+        <h1 class="center-text kern">
+          <a href="/">
+            Demo for DoDo
+          </a>
+        </h1>
+        <p class="no-indent center-text kern">
+          このブログは、自家製のブログ生成ソフト「DoDo」を使用して作成・公開されています。
+        </p>
+      </aside>
+    </div>
+    <div class="main">
+      <div class="content">
+        {% for post in posts %}
+          <div class="post boxed">
+            <article>
+              <aside>
+                <p class="no-indent right-text gray-text small kern">
+                  この記事は
+                  <time datetime="{{ post.creation_date.year }}-{{ post.creation_date.month }}-{{ post.creation_date.day }}">
+                    {{post.creation_date.year}}年{{post.creation_date.month}}月{{ post.creation_date.day }}日
+                  </time>
+                  に投稿されました。
+                </p>
+              </aside>
+              {% if page_type == "single" %}
+                {{ post.full_text }}
+              {% else %}
+                {{ post.summary_text }}
+              {% endif %}
+            </article>
+            <nav>
+              {% if page_type != "single" %}
+                <p class="indent no-indent right-text">
+                  <a href="/{{ post.creation_date.year }}/{{ post.creation_date.month }}/{{ post.creation_date.day }}">
+                    続きを読む
+                  </a>
+                </p>
+              {% endif %}
+            </nav>
+          </div>
+        {% endfor %}
+        {% if previous_pages or next_pages %}
+          <div class="page-navigation">
+            {% if previous_page %}
+              <a href="{{ previous_page.url }}" class="boxed previous-page-link">
+                前のページ
+              </a>
+            {% endif %}
+            {% if next_page %}
+              <a href="{{ next_page.url }}" class="boxed next-page-link">
+                次のページ
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="navigation">
+        <div class="profile boxed">
+          <aside>
+            <h1 class="kern">DoDo太郎</h1>
+            <p class="indent-little">
+              DoDoは静的なブログを作成してくれるツールです。
+              適切に設定を行うことで、ファイルの圧縮やアップロードを自動的に行ってくれます。
+            </p>
+            <hr> <!-- horizontal line -->
+            <ul>
+              <li class="kern small one-line">制作者: <a href="https://twitter.com/tikubonn" target="_blank">@tikubonn</a></li>
+              <li class="kern small one-line">GitHub: <a href="https://github.com/tikubonn/dodo2" target="_blank">https://github.com/tikubonn/dodo2</a></li>
+            </ul>
+          </aside>
+        </div>
+        <div class="recent-pages boxed">
+          <nav>
+            <h1>最新の記事</h1>
+            <ul>
+              {% for page in recent_single_pages[0:10] %}
+                <li class="kern">
+                  <a href="{{ page.url }}">
+                    {{ page.post.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            {% if 10 < recent_single_pages|length %}
+              <p class="indent-little no-indent">
+                <a href="/">もっと読む</a>
+              </p>
+            {% endif %}
+          </nav>
+        </div>
+        <div class="dated-pages boxed">
+          <nav>
+            <h1>カレンダー</h1>
+            <ul>
+              {% for year, month_pages in year_month_pages.items() %}
+                <li class="kern">
+                  <a href="/{{ year }}">
+                    {{ year }}年
+                  </a>
+                </li>
+                {% for month, page in month_pages.items() %}
+                  <li class="kern">
+                    <a href="/{{ year }}/{{ month }}">
+                      {{ year }}年{{month}}月
+                    </a>
+                  </li>
+                {% endfor %}
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+        <div class="tagged-pages boxed">
+          <nav>
+            <h1>タグ付けされた記事</h1>
+            <ul>
+              {% for tag, pages in tagged_pages.items() %}
+                <li class="kern">
+                  <a href="{{ pages[0].url }}">
+                    {{ tag }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p class="center-text small kern">
+        &copy; 2020 tikubonn
+      </p>
+    </div>
+  </body>
+</html>
